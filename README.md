@@ -1,5 +1,5 @@
 # ora_iotcs_sim
-HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
+###### HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
 
 Create Simulator ini file : iotcs_sim.ini 
 All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_ATTRIBUTES]
@@ -23,7 +23,7 @@ function: pattern used to generate simulated data. available options: random, si
 ora_latitude: latitude parameter for device location
 ora_longitude: longitude parameter for device location
 
-
+'''
 #################################### Sample Simulator File ####################################
 [IOTCS_CONNECTION]
 IOTCS_HTTP_CONNECTOR_URL=https://<iotserviceurl>/cgw/<connector_name>
@@ -40,3 +40,4 @@ attr4={"name":"flow_rate" , "min":450 , "max":500 , "function":"random"}
 [LOCATION_ATTRIBUTES]
 ora_latitude=3.1174073
 ora_longitude=101.6758658
+'''
