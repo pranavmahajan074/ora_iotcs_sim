@@ -1,27 +1,28 @@
 # ora_iotcs_sim
 ###### HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
 
-Create Simulator ini file : iotcs_sim.ini 
-All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_ATTRIBUTES]
+###### Create Simulator ini file : iotcs_sim.ini 
+###### All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_ATTRIBUTES]
 
-[IOTCS_CONNECTION]
-IOTCS_HTTP_CONNECTOR_URL: IoT Cloud Service HTTP Connector URL. "https://<iotserviceurl>/cgw/<connector_name>"
-IOTCS_USER=USER ID for IoT Cloud Service
-IOTCS_PASSWORD= Password for IoT Cloud Service
-MESSAGE_INTERVAL= Message interval defined in seconds (MESSAGE_INTERVAL=5 means 1 message every 5 seconds)
+###### [IOTCS_CONNECTION]
+###### IOTCS_HTTP_CONNECTOR_URL: IoT Cloud Service HTTP Connector URL.
+###### IOTCS_USER=USER ID for IoT Cloud Service
+###### IOTCS_PASSWORD= Password for IoT Cloud Service
+###### MESSAGE_INTERVAL= Message interval defined in seconds (MESSAGE_INTERVAL=5 means 1 message every 5 seconds)
 
-You can add additional sensor attributes attr1, attr2, attr3, attr4, attr5,..,attr(n)
+###### You can add additional sensor attributes attr1, attr2, attr3, attr4, attr5,..,attr(n)
 
-[SENSOR_ATTRIBUTES]
-sensor attribute description
-name: sensor attribute name as defined in device model
-min: minimum numeric simulated value for sensor
-max: maximum numeric simulated value for sensor
-function: pattern used to generate simulated data. available options: random, sin, cos
+###### [SENSOR_ATTRIBUTES]
+###### sensor attribute description
+###### name: sensor attribute name as defined in device model
+###### min: minimum numeric simulated value for sensor
+###### max: maximum numeric simulated value for sensor
+###### function: pattern used to generate simulated data. available options: random, sin, cos
 
-[LOCATION_ATTRIBUTES]
-ora_latitude: latitude parameter for device location
-ora_longitude: longitude parameter for device location
+###### [LOCATION_ATTRIBUTES]
+###### ora_latitude: latitude parameter for device location
+###### ora_longitude: longitude parameter for device location
+
 
 '''
 #################################### Sample Simulator File ####################################
