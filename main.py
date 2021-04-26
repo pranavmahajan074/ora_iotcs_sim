@@ -81,7 +81,7 @@ tm = np.arange(0, 100, 1 / 6);
 wavePointCounter = 0
 logging.basicConfig(format='%(asctime)s %(message)s' , datefmt='%Y%m%d-%H:%M:%S %p  <-->', level=logging.INFO)
 config = configparser.ConfigParser()
-config.read('iotcs_sim.ini')
+config.read('iotcs_sim.cfg')
 checkConfig()
 http_connector_url, iot_user, iot_password, message_interval = getConnectionDetails()
 ora_latitude, ora_longitude = getLocationAttributes()
