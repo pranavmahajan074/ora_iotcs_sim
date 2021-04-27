@@ -11,9 +11,9 @@ def checkConfig():
     try:
         assert 'IOTCS_CONNECTION' in config, "Error: IoTCS Connection Details missing in config"
         assert 'SENSOR_ATTRIBUTES' in config, "Error: Sensor Attributes Details missing in config"
-        assert 'LOCATION_ATTRIBUTES' in config, "Error: Location Attributes Details missing in config"
+        assert 'DEVICE_ATTRIBUTES' in config, "Error: Device Attributes Details missing in config"
     except AssertionError as err:
-        logging.error("Sections missing in config [IOTCS_CONNECTION],[SENSOR_ATTRIBUTES],[LOCATION_ATTRIBUTES]")
+        logging.error("Sections missing in config [IOTCS_CONNECTION],[SENSOR_ATTRIBUTES],[DEVICE_ATTRIBUTES]")
         print(err.args[0])
         exit(0)
 
