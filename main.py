@@ -20,7 +20,7 @@ def checkConfig():
 def sendDataToIoT(IoTURL,iotUser,iotPassword,data,packetcount):
     try:
         response = requests.post(IoTURL, auth=HTTPBasicAuth(iotUser, iotPassword), json=data)
-        logging.info(str(response)+' -> Sending data to IoTCS : '+str(data))
+        logging.debug(str(response)+' -> Sending data to IoTCS : '+str(data))
         print("[{}]sending data to {}:{}".format(packetcount,IoTURL, str(data)))
     except Exception as err:
         logging.error(err)
@@ -56,7 +56,7 @@ def getConnectionDetails():
         print(err.args[0])
         exit(0)
     else:
-        return config["IOTCS_CONNECTION"]["IOTCS_HTTP_CONNECTOR_URL"],config["IOTCS_CONNECTION"]["IOTCS_USER"],config["IOTCS_CONNECTION"]["IOTCS_PASSWORD"],config["IOTCS_CONNECTION"]["MESSAGE_INTERVAL"]
+        return config["IOTCS_CONNECTION"]["IOTCS_HTTP_CONNECTOR_URL"].replace('"',''),config["IOTCS_CONNECTION"]["IOTCS_USER"].replace('"',''),config["IOTCS_CONNECTION"]["IOTCS_PASSWORD"].replace('"',''),config["IOTCS_CONNECTION"]["MESSAGE_INTERVAL"]
 
 def getSensorAttributes():
     sensorData = dict()
