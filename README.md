@@ -1,28 +1,33 @@
-# ora_iotcs_sim
-###### HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
+## HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
 
-###### Create Simulator ini file : iotcs_sim.ini 
-###### All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_ATTRIBUTES]
+#### Create Simulator ini file : iotcs_sim.cfg 
+All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_ATTRIBUTES]
 
-###### [IOTCS_CONNECTION]
-###### IOTCS_HTTP_CONNECTOR_URL: IoT Cloud Service HTTP Connector URL.
-###### IOTCS_USER=USER ID for IoT Cloud Service
-###### IOTCS_PASSWORD= Password for IoT Cloud Service
-###### MESSAGE_INTERVAL= Message interval defined in seconds (MESSAGE_INTERVAL=5 means 1 message every 5 seconds)
+|Section|Description|
+|---|---|
+|**[IOTCS_CONNECTION]**|This section provides device connectivity parameters|
+|`IOTCS_HTTP_CONNECTOR_URL`| IoT Cloud Service HTTP Connector URL|
+|`IOTCS_USER`|USER ID for IoT Cloud Service|
+|`IOTCS_PASSWORD`| Password for IoT Cloud Service|
+|`MESSAGE_INTERVAL`| Message interval defined in seconds (MESSAGE_INTERVAL=5 means 1 message every 5 seconds)|
 
-###### You can add additional sensor attributes attr1, attr2, attr3, attr4, attr5,..,attr(n)
+|Section|Description|
+|---|---|
+|**[SENSOR_ATTRIBUTES]**| This section includes all sensor attributes that need to be simulated.|
+`attr1`|You can add additional sensor attributes `attr1`, `attr2`, `attr3`, `attr4`, `attr5`,..,`attr(n)`|
+|`name`| sensor attribute name as defined in device model|
+|`min`| minimum numeric simulated value for sensor|
+|`max`| maximum numeric simulated value for sensor|
+|`function`| pattern used to generate simulated data. available options: `random`, `sin`, `cos`|
 
-###### [SENSOR_ATTRIBUTES]
-###### sensor attribute description
-###### name: sensor attribute name as defined in device model
-###### min: minimum numeric simulated value for sensor
-###### max: maximum numeric simulated value for sensor
-###### function: pattern used to generate simulated data. available options: random, sin, cos
+|Section|Description|
+|---|---|
+|**[DEVICE_ATTRIBUTES]**| Provide device ID and location attributes for device|
+|`deviceid`| Unique device ID or Serial no.|
+|`latitude`| latitude parameter for device location|
+|`longitude`| longitude parameter for device location|
 
-###### [LOCATION_ATTRIBUTES]
-###### ora_latitude: latitude parameter for device location
-###### ora_longitude: longitude parameter for device location
-
+#### Sample Configuration File : iotcs_sim.cfg
 
 ```
 #################################### Sample Simulator File ####################################
@@ -38,7 +43,8 @@ attr2={"name":"humidity" , "min":80 , "max":100 , "function":"random"}
 attr3={"name":"vibration" , "min":20 , "max":30 , "function":"sin"}
 attr4={"name":"flow_rate" , "min":450 , "max":500 , "function":"random"}
 
-[LOCATION_ATTRIBUTES]
-ora_latitude=3.1174073
-ora_longitude=101.6758658
+[DEVICE_ATTRIBUTES]
+deviceid=SENSOR12345
+latitude=3.1174073
+longitude=101.6758658
 ```

@@ -66,15 +66,27 @@ def getSensorAttributes():
 
 def getLocationAttributes():
     try:
-        assert "ora_latitude" in config[
-            "LOCATION_ATTRIBUTES"], "Latitude value is missing ora_latitude=3.1174073"
-        assert "ora_longitude" in config["LOCATION_ATTRIBUTES"], "Longitude value is missing ora_longitude=101.6758658"
+        assert "latitude" in config[
+            "DEVICE_ATTRIBUTES"], "Latitude value is missing latitude=3.1174073"
+        assert "longitude" in config["DEVICE_ATTRIBUTES"], "Longitude value is missing longitude=101.6758658"
     except AssertionError as err:
         logging.error("Location Parameters are missing")
         print(err.args[0])
         exit(0)
     else:
-        return config["LOCATION_ATTRIBUTES"]["ora_latitude"],config["LOCATION_ATTRIBUTES"]["ora_longitude"]
+        return config["DEVICE_ATTRIBUTES"]["latitude"],config["DEVICE_ATTRIBUTES"]["longitude"]
+
+def getDeviceID():
+    try:
+        assert "deviceid" in config[
+            "DEVICE_ATTRIBUTES"], "deviceid value is missing [deviceid=SENSOR12345]"
+    except AssertionError as err:
+        logging.error("deviceid is missing")
+        print(err.args[0])
+        exit(0)
+    else:
+        return config["DEVICE_ATTRIBUTES"]["deviceid"]
+
 
 ## Main Program
 tm = np.arange(0, 100, 1 / 6);
@@ -84,7 +96,8 @@ config = configparser.ConfigParser()
 config.read('iotcs_sim.cfg')
 checkConfig()
 http_connector_url, iot_user, iot_password, message_interval = getConnectionDetails()
-ora_latitude, ora_longitude = getLocationAttributes()
+latitude, longitude = getLocationAttributes()
+deviceid = getDeviceID()
 sensor_attributes = getSensorAttributes()
 unpackedSensors = list()
 for sensor in sensor_attributes:
@@ -94,8 +107,9 @@ while(1):
     iot_data = dict()
     for sensor in unpackedSensors:
         iot_data[sensor["name"]]=getSensorValue(tm[wavePointCounter],sensor["min"],sensor["max"],sensor["function"])
-    iot_data["ora_latitude"] = ora_latitude
-    iot_data["ora_longitude"] = ora_longitude
+    iot_data["latitude"] = latitude
+    iot_data["longitude"] = longitude
+    iot_data["deviceid"] = deviceid
     sendDataToIoT(http_connector_url, iot_user, iot_password, iot_data,wavePointCounter)
 
     wavePointCounter+=1
