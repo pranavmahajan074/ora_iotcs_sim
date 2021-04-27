@@ -7,6 +7,8 @@ import numpy as np
 import json
 import time
 
+
+# Check Config
 def checkConfig():
     try:
         assert 'IOTCS_CONNECTION' in config, "Error: IoTCS Connection Details missing in config"
