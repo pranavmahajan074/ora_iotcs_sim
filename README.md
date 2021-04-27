@@ -1,5 +1,5 @@
 # HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
-This HTTP Connector Simulator for Oracle IoT Intelligent Apps can run on microcontroller development boards like **Raspberry Pi** that can run python 3.6 and above.
+This HTTP Connector Simulator for Oracle IoT Intelligent Apps can run on microcontroller development boards like **Raspberry Pi** that can run python 3.6 and above or any computer system (WIN/MacOS/Linux).
 
 ## Steps to Follow
 
