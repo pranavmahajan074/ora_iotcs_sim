@@ -1,6 +1,34 @@
-## HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
+# HTTP Connector Simulator for Oracle IoT Intelligent Apps Cloud Sevice
+This HTTP Connector Simulator for Oracle IoT Intelligent Apps can run on microcontroller development boards like **Raspberry Pi** that can run python 3.6 and above.
 
-#### Create Simulator ini file : iotcs_sim.cfg 
+## Steps to Follow
+
+#### 1. Install Python 
+Install Python 3.6 or above
+###### (For Linux/Unix)
+https://docs.python-guide.org/starting/install3/linux/
+###### (For Windows)
+https://docs.python-guide.org/starting/install3/win/
+###### (For Mac)
+https://docs.python-guide.org/starting/install3/osx/
+#### 2. Copy project source
+`git clone https://github.com/pranavmahajan074/ora_iotcs_sim.git`
+
+#### 3. Create and Activate Virtual Environment
+```
+cd ora_iotcs_sim/
+ls -ltr
+python3.6 -m venv venv
+source venv/bin/activate
+```
+#### 4. Upgrade pip and Install Dependencies
+```
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+#### 5. Create Simulator Config
+
+###### Create Simulator config file : iotcs_sim.cfg 
 All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_ATTRIBUTES]
 
 |Section|Description|
@@ -48,3 +76,6 @@ deviceid=SENSOR12345
 latitude=3.1174073
 longitude=101.6758658
 ```
+
+#### 6. Run Program
+`python main.py`
