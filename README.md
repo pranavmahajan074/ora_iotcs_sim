@@ -12,7 +12,7 @@ https://docs.python-guide.org/starting/install3/win/
 ###### (For Mac)
 https://docs.python-guide.org/starting/install3/osx/
 #### 2. Copy project source
-`git clone https://github.com/pranavmahajan074/ora_iotcs_sim.git`
+`gh repo clone https://github.com/pranavmahajan074/ora_iotcs_sim.git`
 
 #### 3. Create and Activate Virtual Environment
 ```
