@@ -38,6 +38,7 @@ All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_A
 |`IOTCS_USER`|USER ID for IoT Cloud Service|
 |`IOTCS_PASSWORD`| Password for IoT Cloud Service|
 |`MESSAGE_INTERVAL`| Message interval defined in seconds (MESSAGE_INTERVAL=5 means 1 message every 5 seconds)|
+|`SIMULATION`| Define whether data is simulated or from sensor (YES - for Simulated/NO - Live Sensor)|
 
 |Section|Description|
 |---|---|
@@ -55,6 +56,12 @@ All sections are mandatory. [IOTCS_CONNECTION], [SENSOR_ATTRIBUTES], [LOCATION_A
 |`latitude`| latitude parameter for device location|
 |`longitude`| longitude parameter for device location|
 
+|Section|Description|
+|---|---|
+|**[RASPBERRY_PI_IO]**| Provide details for GPIO Connection for Sensors|
+|`GPIO_TEMPERATURE`| GPIO PIN No.|
+|`GPIO_HUMIDITY`| GPIO PIN No.|
+|`GPIO_VIBRATION`| GPIO PIN No.|
 #### Sample Configuration File : iotcs_sim.cfg
 
 ```
@@ -64,17 +71,23 @@ IOTCS_HTTP_CONNECTOR_URL=https://<iotserviceurl>/cgw/<connector_name>
 IOTCS_USER=<USERID>
 IOTCS_PASSWORD=<PASSWORD>
 MESSAGE_INTERVAL=1
+SIMULATION=YES
 
 [SENSOR_ATTRIBUTES]
-attr1={"name":"temperature" , "min":40 , "max":50 , "function":"cos"}
-attr2={"name":"humidity" , "min":80 , "max":100 , "function":"random"}
-attr3={"name":"vibration" , "min":20 , "max":30 , "function":"sin"}
-attr4={"name":"flow_rate" , "min":450 , "max":500 , "function":"random"}
+attr1={"name":"temperature" , "min":25 , "max":30 , "function":"sin"}
+attr2={"name":"humidity" , "min":90 , "max":100 , "function":"random"}
+attr3={"name":"vibration" , "min":1 , "max":2 , "function":"sin"}
 
 [DEVICE_ATTRIBUTES]
 deviceid=SENSOR12345
 latitude=3.1174073
 longitude=101.6758658
+
+
+[RASPBERRY_PI_IO]
+GPIO_TEMPERATURE=GPIO2
+GPIO_HUMIDITY=GPIO3
+GPIO_VIBRATION=GPIO4
 ```
 
 #### 6. Run Program
